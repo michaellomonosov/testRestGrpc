@@ -30,11 +30,11 @@ namespace BenchRestGrpc
 			}
 		}
 		[Benchmark]
-		public void GrpcCall()
+		public async Task GrpcCall()
 		{
 			for (var i = 0; i < 10000; i++)
 			{
-				_ = _grpcClient.GetDataAsync(new TestRequest() { Id = 4, Name = "from grpc", Time = DateTime.Now });
+				_ = await _grpcClient.GetDataAsync(new TestRequest() { Id = 4, Name = "from grpc", Time = DateTime.Now });
 			}
 		}
 

@@ -5,7 +5,7 @@ using testGrpcService.Services;
 
 namespace testGrpcService
 {
-	public class Program
+	public static class Program
 	{
 		public static void Main(string[] args)
 		{
@@ -13,8 +13,8 @@ namespace testGrpcService
 
 			builder.Services.AddCodeFirstGrpc(options =>
 				  {
-					  options.MaxReceiveMessageSize = 8 * 1024 * 1024; // 8 MB
-					  options.ResponseCompressionLevel = System.IO.Compression.CompressionLevel.Optimal;
+					  //options.MaxReceiveMessageSize = 8 * 1024 * 1024; // 8 MB
+					  //options.ResponseCompressionLevel = System.IO.Compression.CompressionLevel.Optimal;
 				  });
 
 			builder.Services.AddControllers();
