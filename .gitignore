@@ -1,0 +1,9 @@
+/.vs
+/*.user
+/testGrpcService/bin
+/testGrpcService/obj
+/BenchRestGrpc/bin
+/BenchRestGrpc/obj
+/RestGrpcModels/bin
+/RestGrpcModels/obj
+/testGrpcService/*.user
