@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace BenchRestGrpc
 {
 	[MemoryDiagnoser]
+	[IterationCount(100)]
 	public class TestCall
 	{
 		private readonly HttpClient _httpClient = new();
@@ -24,7 +25,7 @@ namespace BenchRestGrpc
 		[Benchmark(Baseline = true)]
 		public async Task RestCall()
 		{
-			for (var i = 0; i < 10000; i++)
+			//for (var i = 0; i < 10000; i++)
 			{
 				_ = await _httpClient.PostAsJsonAsync("http://localhost:5001/test/add", new TestRequest { Id = 2, Name = "from client", Time = DateTime.Now });
 			}
@@ -32,7 +33,7 @@ namespace BenchRestGrpc
 		[Benchmark]
 		public async Task GrpcCall()
 		{
-			for (var i = 0; i < 10000; i++)
+			//for (var i = 0; i < 10000; i++)
 			{
 				_ = await _grpcClient.GetDataAsync(new TestRequest() { Id = 4, Name = "from grpc", Time = DateTime.Now });
 			}
